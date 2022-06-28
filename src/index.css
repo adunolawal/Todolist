@@ -1,0 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  box-sizing: border-box;
+}
+.App{
+  max-width: 400px;
+  min-height: 300px;
+  margin: 30px auto;
+  overflow: auto;
+  border: 1px solid slateblue;
+  padding: 30px;
+  border-radius: 5px;
+
+}
+.taskbar{
+  display:flex;
+}
+.taskbar h1{
+  font-size: 30px;
+}
+.taskbar button{
+  margin-left: 70px;
+  background-color: cornflowerblue;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 6px;
+}
+.taskview{
+  margin-top: 23px;
+}
+.eachTask{
+  background-color: rgba(215, 247, 236, 0.388);
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.addTask{
+  margin-top: 15px;
+}
+.addTask input{
+  padding: 5px;
+  width: 19rem;
+  margin-bottom: 10px;
+}
+.addTask button{
+  width: 19rem;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 4px;
+  cursor: pointer;
+}
+.addTask h4{
+  margin-bottom: -18px;
+}
+
