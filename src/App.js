@@ -1,6 +1,7 @@
 import {Component } from  'react';
 import Taskview from  './Taskview';
 import Addtask from  './Addtask';
+import Taskbar from './Taskbar';
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
     }
     ], showAddTask:false, userInput: ""}
 
+
     showHandler =()=> {
       const doesShow = this.state.showAddTask
       this.setState (
@@ -39,19 +41,15 @@ class App extends Component {
       this.setState (
         {showAddTask: false})
     }
-    updateInput =(event)=>{
-      const addIt = this.state.tasks;
-      addIt.push({tasks:[{
-        text: event.target.value,
-        day: event.target.value,
-        reminder: true,  }]})
-      this.setState({
-        addIt:addIt
-      })
-    }
     inputChangeHandler = (event) => {
       this.setState({
         userInput: event.target.value 
+      })
+    }
+    newTodo =()=>{
+      this.setState({
+        tasks:[
+          ...this.state.tasks, {text:this.state.userInput} ,{day:this.state.userInput }]
       })
     }
   
@@ -63,7 +61,9 @@ class App extends Component {
 
     let showing = null
     if(this.state.showAddTask){
-        showing =  <Addtask  update={this.updateTask} updateText={this.inputChangeHandler}></Addtask>
+        showing =  <Addtask  update={this.updateTask}  clicking={this.newTodo}
+        valued={this.state.newTodo} updating ={this.inputChangeHandler}></Addtask>
+
         mystyle.backgroundColor = "red"
     }
 
@@ -72,15 +72,14 @@ class App extends Component {
 
     return(
       <div className="App">
-      {/* <Taskbar style={mystyle} showHandle={this.showHandler}></Taskbar> */}
-      <div className="taskbar">
-        <h1>Task Tracker</h1>
-        <button style={mystyle} onClick={this.showHandler} >Add Task</button>
-      </div>
+      <Taskbar style={mystyle} showHandle={this.showHandler}></Taskbar>
+  
       <p>{showing } </p>
        {this.state.tasks.map((viewTask, index) =>
         {return <Taskview clicked={()=>{this.deleteHandler(index)}} text={viewTask.text} day={viewTask.day} > </Taskview> })
        }
+       
+       {this.inputChangeHandler}
      
       </div>
     )

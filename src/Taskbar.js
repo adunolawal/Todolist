@@ -1,13 +1,12 @@
 const Taskbar =(props)=> {
-       
-        return(
-            <div>
-                <div className="taskbar">
-                    <h1>Task Tracker</h1>
-                    <button  onClick={props.showHandle} >Add Task</button>
-                </div>
+    return(
+         <div>
+            <div className="taskbar">
+                <h1>Task Tracker</h1>
+                <button style={props.style} onClick={props.showHandle} >Add Task</button>
             </div>
-        )
+        </div>
+    )
 }
 
 // const Taskbar = () => {
